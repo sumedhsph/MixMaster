@@ -1,15 +1,21 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigation } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import { Container } from "@mui/material";
-
+import { CircularProgress, Container } from "@mui/material";
 
 function HomeLayout() {
+  const navigation = useNavigation();
+  const isPageLoading = navigation.state === "loading";
+  const value = "some value";
   return (
     <div>
       <Navbar />
       <Container>
-        <Outlet />
+        {isPageLoading ? (
+          <div className="loading"><CircularProgress/></div>
+        ) : (
+          <Outlet context={{ value }} />
+        )}
       </Container>
     </div>
   );

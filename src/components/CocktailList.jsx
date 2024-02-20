@@ -4,7 +4,7 @@ import CocktailCard from "./CocktailCard";
 import { Grid } from "@mui/material";
 
 function CocktailList({ drinks }) {
-  console.log(drinks);
+ // console.log(drinks);
 
   if (!drinks) {
     return (

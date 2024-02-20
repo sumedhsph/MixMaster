@@ -17,7 +17,7 @@ function CocktailCard({ image, name, id, info, glass }) {
   return (
     <Grid item xs={2} sm={4} md={4}>
       <Card sx={{ maxWidth: 345 }}>
-        <CardMedia sx={{ height: 140 }} image={image} title={name}></CardMedia>
+        <CardMedia sx={{ height: 240 }} image={image} title={name}></CardMedia>
         <CardContent>
           <Typography gutterBottom variant="h4" component="div">
             {name}
@@ -30,7 +30,7 @@ function CocktailCard({ image, name, id, info, glass }) {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Details</Button>
+          <Button size="small"><Link to={`/cocktail/${id}`}>Details</Link></Button>
         </CardActions>
       </Card>
     </Grid>
