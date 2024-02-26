@@ -50,7 +50,6 @@ function Navbar() {
             variant="h6"
             noWrap
             component="a"
-             
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -64,7 +63,7 @@ function Navbar() {
             <img src={logo} alt="MixMaster Logo" title="MixMaster" />
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -95,17 +94,25 @@ function Navbar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography
+                    key={page}
+                    component={NavLink}
+                    to={page === "home" ? "/" : `/${page}`}
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, color: "#333", display: "block" }}
+                  >
+                    {page}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -117,9 +124,9 @@ function Navbar() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            <img src={logo} alt="MixMaster logo" />
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
                 key={page}
